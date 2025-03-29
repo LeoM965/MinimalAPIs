@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a Book</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        input, button {
+            margin: 10px 0;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Find a Book by ID</h1>
+    <label for="book-id">Enter Book ID:</label>
+    <input type="number" id="book-id" min="1">
+    <button onclick="getBookById()">Search</button>
+
+    <h2>Book Details</h2>
+    <p id="book-info">No book selected.</p>
+
+    <script>
+        function getBookById() {
+            const bookId = document.getElementById('book-id').value;
+            if (!bookId) {
+                alert('Please enter a valid ID');
+                return;
+            }
+
+            fetch(`http://localhost:5219/books/${bookId}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Book not found');
+                    }
+                    return response.json();
+                })
+                .then(book => {
+                    document.getElementById('book-info').innerHTML =
+                        `<strong>Title:</strong> ${book.title} <br>
+                         <strong>Author:</strong> ${book.author}`;
+                })
+                .catch(error => {
+                    document.getElementById('book-info').innerText = 'Book not found';
+                });
+        }
+    </script>
+</body>
+</html>

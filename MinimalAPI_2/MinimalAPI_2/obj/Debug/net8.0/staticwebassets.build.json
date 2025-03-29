@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "vqRX+RAn8UBTPD2zRYHUhjs8s7hTn3hBTpayY4zMnG4=",
+  "Source": "MinimalAPI_2",
+  "BasePath": "_content/MinimalAPI_2",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "MinimalAPI_2\\wwwroot",
+      "Source": "MinimalAPI_2",
+      "ContentRoot": "C:\\Users\\europe\\OneDrive\\Desktop\\.NET\\MinimalAPI_2\\MinimalAPI_2\\wwwroot\\",
+      "BasePath": "_content/MinimalAPI_2",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}
